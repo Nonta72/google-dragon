@@ -21,14 +21,14 @@ esac
 
 TMPDOWN=$(mktemp -d)
 cd "$TMPDOWN"
-    git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b pie-gsi --depth 1
+    git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b android-9.0.0_r46 --depth 1
     GCC_PATH="$TMPDOWN/aarch64-linux-android-4.9"
     if $deviceinfo_kernel_clang_compile; then
-        git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 -b android10-gsi --depth 1
+        git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 -b android-9.0.0_r46 --depth 1
         CLANG_PATH="$TMPDOWN/linux-x86/clang-r353983c"
     fi
     if [ "$deviceinfo_arch" == "aarch64" ]; then
-        git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b pie-gsi --depth 1
+        git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b android-9.0.0_r46 --depth 1
         GCC_ARM32_PATH="$TMPDOWN/arm-linux-androideabi-4.9"
     fi
     git clone "$deviceinfo_kernel_source" -b $deviceinfo_kernel_source_branch --depth 1
@@ -37,8 +37,8 @@ cd "$TMPDOWN"
         "https://github.com/halium/initramfs-tools-halium/releases/download/continuous/initrd.img-touch-${RAMDISK_ARCH}"
     
     if $deviceinfo_kernel_apply_overlay; then
-        git clone https://android.googlesource.com/platform/system/libufdt -b pie-gsi --depth 1
-        git clone https://android.googlesource.com/platform/external/dtc -b pie-gsi --depth 1
+        git clone https://android.googlesource.com/platform/system/libufdt -b android-9.0.0_r46 --depth 1
+        git clone https://android.googlesource.com/platform/external/dtc -b android-9.0.0_r46 --depth 1
     fi
     ls .
 cd "$HERE"
