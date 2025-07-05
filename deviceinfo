@@ -6,7 +6,6 @@ deviceinfo_kernel_source="https://github.com/Nonta72/android_kernel_google_drago
 deviceinfo_kernel_source_branch="mkp"
 deviceinfo_kernel_defconfig="dragon_defconfig"
 deviceinfo_kernel_cmdline="console=tty0 androidboot.selinux=permissive buildvariant=userdebug systempart=/dev/disk/by-partlabel/system apparmor=1 security=apparmor"
-deviceinfo_kernel_clang_compile="true"
 deviceinfo_flash_pagesize="2048"
 deviceinfo_flash_offset_base="0x10000000"
 deviceinfo_flash_offset_kernel="0x00008000"
